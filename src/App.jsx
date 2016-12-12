@@ -12,6 +12,7 @@ export  default class App extends Component {
             <Router history={browserHistory}>
                 <Route path="/" component={MainLayout}>
                     <IndexRoute component={Search} />
+                    <Route path="search" component={Search} />
                     <Route path="*" component={Error404}/>
                 </Route>
             </Router>
