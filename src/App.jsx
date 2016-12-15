@@ -6,7 +6,7 @@ import './css/App.css';
 
 import MainLayout from './view/layouts/MainLayout';
 import Error404 from './view/errors/Error404';
-import { Search } from './view/root/Search/Search';
+import Search from './view/root/Search/Search';
 import Test from './view/root/Test';
 
 export  default class App extends Component {
@@ -25,29 +25,5 @@ export  default class App extends Component {
         );
     }
 }
-
-
-
-/*
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-            <Search />
-        </div>
-        <div className="container" style={{paddingTop: '20px'}}>
-            <div className="row">
-                <Contact />
-                <Contact />
-            </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-export default App;
-*/
 
 
