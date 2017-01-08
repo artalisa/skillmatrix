@@ -29,7 +29,9 @@ export default class Contacts extends Component {
                     <div className="panel panel-default">
                         <div className="panel-heading">{this.props.skillsRequired[0]}</div>
                         <div className="panel-body">
-                            {contacts[this.props.skillsRequired[0]]}
+                            <div className="row">
+                                {contacts[this.props.skillsRequired[0]]}
+                            </div>
                         </div>
                     </div>
                 );
@@ -41,7 +43,9 @@ export default class Contacts extends Component {
                         <div className="panel panel-default">
                             <div className="panel-heading">{skill}</div>
                             <div className="panel-body">
-                                {contacts[skill]}
+                                <div className="row">
+                                    {contacts[skill]}
+                                </div>
                             </div>
                         </div>
                     );
