@@ -89,6 +89,15 @@ export default class SkillMatrixAPI {
                 console.log(err);
             });
     }
+    dropUserSkill(user, skill) {
+        return this.request({
+            url: '/api/v1/user/skill',
+            data: {
+                skillName: skill
+            },
+            method: 'delete'
+        }).then(this._parseResponse);
+    }
     addUserSkill(user, skill) {
         return this.request({
             url: '/api/v1/user/skill',
@@ -154,6 +163,9 @@ export default class SkillMatrixAPI {
                 }else{
                     throw new SkillMatrixAPIError('Failed to fetch result');
                 }
-            });
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
     }
 }

@@ -30,6 +30,13 @@ export default class SkillSet extends Component {
 
     removeSkill(e, name) {
         e.preventDefault();
+        const smapi = sl.get('SkillMatrixAPI');
+        const self = this;
+
+        smapi.dropUserSkill('', name)
+            .then(function(){
+                self.getSkills();
+            });
 
     }
     getSkillsName() {
@@ -55,7 +62,6 @@ export default class SkillSet extends Component {
                 });
             smapi.addUserSkills('', skills)
                 .then(function () {
-                    console.log('Added skill');
                     self.getSkills();
                 })
 
@@ -88,7 +94,9 @@ export default class SkillSet extends Component {
             return (
                 <div>
                     <h3>Skills</h3>
-                    {skills}
+                    <div className="row" style={{wordWrap: 'break-word'}}>
+                        {skills}
+                    </div>
                     <br/><hr/>
                     <div className="form-group">
                         <input className="form-control" type="text" placeholder="Enter skill name separated by ;" onChange={this.addSkill} onBlur={function(e){self.addSkill(e, true);}}/>
