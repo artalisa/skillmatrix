@@ -11,7 +11,7 @@ class Search extends Component {
                     <SearchBar />
                 </div>
                 <div className="container" style={{paddingTop: '20px'}}>
-                    <Contacts users={this.props.users} />
+                    <Contacts users={this.props.users} skillsRequired={this.props.skillsRequired}/>
                 </div>
             </div>
         );
@@ -20,7 +20,8 @@ class Search extends Component {
 
 const mapReduxStateToProps = function(rstate) {
     return {
-        users: rstate.search.users
+        users: rstate.search.users.users,
+        skillsRequired: [ rstate.search.users.skillsRequired ]
     }
 }
 

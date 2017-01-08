@@ -14,6 +14,7 @@ export default class NavBar extends Component {
                         <li><Link to="/search">Search</Link></li>
                         <li><Link to="/users">Users</Link></li>
                         <li><Link to="/project">Project</Link></li>
+                        <li><Link to="/profile">Profile</Link></li>
                     </ul>
                 </div>
             </nav>

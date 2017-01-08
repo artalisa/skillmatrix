@@ -3,7 +3,10 @@ export default function init() {
         test: 'TestInitial',
         search: {
             searchSuggestions: [],
-            users: []
+            users: {
+                skillsRequired: [],
+                users: []
+            }
         }
     });
 }

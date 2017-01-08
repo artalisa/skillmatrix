@@ -18,7 +18,11 @@ export default {
         return function(dispatch, getState) {
             smapi.getUsers(searchSkills)
                 .then(function(users) {
-                    dispatch({type:'SEARCH_GETUSERS', users: users});
+                    dispatch({type:'SEARCH_GETUSERS', users: {
+                            users: users,
+                            skillsRequired: searchSkills
+                        }
+                    });
                 });
         }
     }
