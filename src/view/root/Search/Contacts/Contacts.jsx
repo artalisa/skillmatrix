@@ -8,21 +8,30 @@ export default class Contacts extends Component {
 
         if(this.props.users.length !== 0) {
 
-            const users = this.props.users;
-
-            for (let i = 0; i < users.length; i++) {
-                const user = users[i];
-
-                if (!contacts[user.skill.name]) {
-                    contacts[user.skill.name] = [];
+            const users = this.props.users.sort(function(a,b){
+                if(a.officialRating > b.officialRating) {
+                    return -1;
+                }else if(b.officialRating > a.officialRating) {
+                    return 1;
+                }else{
+                    return 0;
                 }
+            });
 
-                contacts[user.skill.name].push(
-                    <Contact user={user}/>
-                );
 
+            for (let i in users) {
+                if (Object.prototype.hasOwnProperty.call(users, i)) {
+                    const user = users[i];
+
+                    if (!contacts[user.skill.name]) {
+                        contacts[user.skill.name] = [];
+                    }
+
+                    contacts[user.skill.name].push(
+                        <Contact user={user}/>
+                    );
+                }
             }
-
 
             if (contacts[this.props.skillsRequired[0]]) {
                 ret.push(
